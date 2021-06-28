@@ -1,5 +1,9 @@
 <center><h1>Bài tập SQL | Quản lý chuyến bay</h1><center>
 - 
+Microsoft SQL Server là một hệ quản trị cơ sở dữ liệu quan hệ được phát triển bởi Microsoft. Là một máy chủ cơ sở dữ liệu, nó là một sản phẩm phần mềm có chức năng chính là lưu trữ và truy xuất dữ liệu theo yêu cầu của các ứng dụng phần mềm khác.
+
+Link dowload ==> https://go.microsoft.com/fwlink/?linkid=866662 <br>
+Link mssql : =====> [Link dowload MSSQL or Sql Server](https://go.microsoft.com/fwlink/?linkid=866662)
 
 # Mô tả cơ sở dữ liệu==>
 
@@ -40,43 +44,22 @@ Các nhân viên được phân công vào một hay nhiều lịch b
     // go
     // use QL_ChuyenBay
 ```
-    --  Tạo bảng KHACHHANG
-        create table KHACHHANG
-        (
-        MAKH nvarchar(15),
-        TEN nvarchar(15),
-        DCHI nvarchar(50),
-        DTHOAI nvarchar(12),
-        primary key (MAKH)
-        )
-    
-    --  Tạo bảng NHANVIEN
-        create table NHANVIEN
-        (
-        MANV nvarchar(15),
-        TEN nvarchar(15),
-        DCHI nvarchar(50),
-        DTHOAI nvarchar(12),
-        LUONG float,
-        LOAINV bit,
-        primary key (MANV)
-        )
 
-    --  Tạo bảng LOAIMB
-        create table LOAIMB
-        (
-        MALOAI nvarchar(15),
-        HANGSX nvarchar(15),
-        primary key (MALOAI)
-        )    
+|KHACHHANG|NHANVIEN|LOAIMB|MAYBAY|
+|:---|---|---|---|
+| Tạo bảng KHACHHANG    |Tạo bảng NHANVIEN              |Tạo bảng LOAIMB        |Tạo bảng MAYBAY                |
+| **create table KHACHHANG**|**create table NHANVIEN**  |**create table LOAIMB**|**create table MAYBAY**        |
+| (                     |(                              |(                      |(                              |
+| MAKH nvarchar(15),    |MANV nvarchar(15),             |MALOAI nvarchar(15),   |SOHIEU int,                    |
+| TEN nvarchar(15),     |TEN nvarchar(15),              |HANGSX nvarchar(15),   |MALOAI nvarchar(15),           |
+| DCHI nvarchar(50),    |DCHI nvarchar(50),             |primary key (MALOAI)   |primary key (SOHIEU, MALOAI)   |
+| DTHOAI nvarchar(12),  |DTHOAI nvarchar(12),           |)                      |)                              |
+| primary key (MAKH)    |LUONG float,                   |                       |                               |
+| )                     |LOAINV bit,                    |                       |                               |
+|                       |primary key (MANV)             |                       |                               |
+|                       |)                              |                       |                               |
 
-    --  Tạo bảng MAYBAY
-        create table MAYBAY
-        (  
-        SOHIEU int,
-        MALOAI nvarchar(15),
-        primary key (SOHIEU, MALOAI)
-        )
+# next() ==> 
 
     --  Tạo bảng chuyến bay
         create table CHUYENBAY
