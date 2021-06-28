@@ -59,52 +59,18 @@ Các nhân viên được phân công vào một hay nhiều lịch b
 |                       |primary key (MANV)             |                       |                               |
 |                       |)                              |                       |                               |
 
-# next() ==> 
 
-    --  Tạo bảng chuyến bay
-        create table CHUYENBAY
-        (
-        MACB nvarchar(4),
-        SBDI nvarchar(3),
-        SBDEN nvarchar(3),
-        GIODI time,
-        GIODEN time,
-        primary key (MACB)
-        )
-
-    --  Tạo bảng LICHBAY
-        create table LICHBAY
-        (
-        NGAYDI  datetime,
-        MACB nvarchar(4),
-        SOHIEU int,
-        MALOAI nvarchar(15),
-        primary key (NGAYDI, MACB)
-        )
-    --  Tạo bảng DATCHO
-        create table DATCHO
-        (
-        MAKH nvarchar(15),
-        NGAYDI datetime,
-        MACB nvarchar(4),
-        primary key(MAKH, NGAYDI, MACB)
-        )
-    --  Tạo bảng KHANANG
-        create table KHANANG
-        (
-        MANV nvarchar(15),
-        MALOAI nvarchar(15),
-        primary key (MANV, MALOAI)
-        )
-    --  Tạo bảng PHANCONG
-        create table PHANCONG
-        (
-        MANV nvarchar(15),
-        NGAYDI datetime,
-        MACB nvarchar(4),
-        primary key (MANV, NGAYDI, MACB)
-        )
-
+|KHACHHANG|NHANVIEN|LOAIMB|MAYBAY|PHANCONG|
+|:---|---|---|---|---:|
+|Tạo bảng chuyến bay        |Tạo bảng LICHBAY               |Tạo bảng DATCHO                  |Tạo bảng KHANANG                |Tạo bảng PHANCONG|
+|**create table CHUYENBAY** |**create table LICHBAY**       |**create table DATCHO**          |**create table KHANANG**        |**create table PHANCONG**|
+| (                         |(                              |(                                |(                               |(
+| MACB nvarchar(4),         |NGAYDI  datetime,              |MAKH nvarchar(15),               |MANV nvarchar(15),              |MANV nvarchar(15),
+| SBDI nvarchar(3),         |MACB nvarchar(4),              |NGAYDI datetime,                 |MALOAI nvarchar(15),            |NGAYDI datetime,
+| SBDEN nvarchar(3),        |DSOHIEU int,                   |MACB nvarchar(4),                |primary key (MANV, MALOAI)      |MACB nvarchar(4),
+| GIODI time,               |MALOAI nvarchar(15),           |primary key(MAKH, NGAYDI, MACB)  |)                               |primary key (MANV, NGAYDI, MACB)
+| GIODEN time,              |primary key (NGAYDI, MACB)     |)                                |                                |)
+| )                         |)                              |                                 |                                |
 
 # Reslove ==> 
 
